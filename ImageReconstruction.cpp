@@ -2,9 +2,10 @@
 //#include "WrongImageException.h"
 #include <stdexcept>
 
-ImageReconstruction::ImageReconstruction()
+
+ImageReconstruction::ImageReconstruction(const vector<vector<int> > &verticalProjections, const vector<vector<int> > &horizontalProjections, const Feature &feature)
 {
-    //ctor
+
 }
 
 ImageReconstruction::~ImageReconstruction()
@@ -12,40 +13,17 @@ ImageReconstruction::~ImageReconstruction()
     //dtor
 }
 
+/*
 double ImageReconstruction::distance(const Point2f& P1, const Point2f& P2)
 {
 
     return sqrt((P2.x - P1.x)* (P2.x - P1.x) + (P2.y - P1.y)*(P2.y - P1.y));
 }
+*/
 
 
 
 
-
-
-double ImageReconstruction::calculateProjectionValue(int sorOszl, int index)
-{
-
-
-    double projValue=0.0;
-
-    // ha sorindex
-    if(sorOszl==0)
-    {
-        projValue = sum(InputImg.row(index))[0];
-    }
-    // ha oszlopindex
-    else if(sorOszl == 1)
-    {
-        projValue = sum(InputImg.col(index))[0];
-
-    }
-    else
-        return 0.0;
-
-    return projValue;
-
-}
 
 /*
 // W*x = p -ben a p vektor bővítése a megadott számmal, valamint W megfelelő elemeinek kitöltése

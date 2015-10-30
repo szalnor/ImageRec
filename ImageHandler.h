@@ -13,11 +13,11 @@
 #include <math.h>
 //#include <boost/tokenizer.hpp>
 //#include <boost/foreach.hpp>
-#include <boost/algorithm/string.hpp>
+//#include <boost/algorithm/string.hpp>
 
 using namespace std;
 using namespace cv;
-using namespace boost;
+//using namespace boost;
 
 class ImageHandler
 {
@@ -25,16 +25,16 @@ class ImageHandler
         int WriteImagesToFile();
         void WriteImagesToFile(string imgDir, map<string,Mat>& images);
         void WriteImageMatrixToFile(Mat& img, int i, int j);
-        void WriteImageVectorToFile(map<string,vector<int>>& subImages);
+        void WriteImageVectorToFile(map<string,vector<int> >& subImages);
         static bool transformToBinaryImage(Mat& oldImage, Mat& newImage, int width, int height);
-        void saveSubImages(map<string,vector<int>>& subImages);
+        void saveSubImages(map<string,vector<int> >& subImages);
         void saveSubImages(vector< vector<Mat> > & subImages);
         void saveSubImages(vector< vector<int> > & subImages);
         void saveSubImages(vector<Mat> & subImages);
-        bool readMultipleImages(map<string,Mat>& images, string image_dirPath, int width, int height);
+        static bool readMultipleImages(string image_dirPath, map<string,Mat>& images, int width, int height);
         Mat convertImageToOneDim(Mat img);
-        string removeDirName(string fullName);
-        string intToStr(int i,string path);
+        static string removeDirName(string fullName);
+        static string intToStr(int i,string path);
 
         ImageHandler(const Mat& img, const int nSize);
         ImageHandler();

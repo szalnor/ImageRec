@@ -1,16 +1,19 @@
-#include "Features.h"
+#include "Feature.h"
 
-Features::Features()
+Feature::Feature()
 {
     //ctor
 }
 
-Features::~Features()
+Feature::~Feature()
 {
     //dtor
 }
 
-void Features::calculateSplittedFeature(const Mat& img, const int splitNum, vector<int>& featureVec)
+
+
+/*
+void Feature::calculateSplittedFeature(const Mat& img, const int splitNum, vector<int>& featureVec)
 {
 
     int rows = img.rows;
@@ -32,7 +35,14 @@ void Features::calculateSplittedFeature(const Mat& img, const int splitNum, vect
     }
 
 }
+*/
 
+/*
+void Feature::numberAndSizeOfShapes(const Mat& img)
+{
+
+}
+*/
 /*
 void Features::siftFeature(const Mat img){
 

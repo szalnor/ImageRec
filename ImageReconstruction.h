@@ -8,7 +8,9 @@
 #include <iostream>
 #include <vector>
 #include <math.h>
-
+#include "OptimizerDatas.h"
+#include "ProjectionHandler.h"
+#include "Feature.h"
 
 using namespace std;
 using namespace cv;
@@ -16,30 +18,21 @@ using namespace cv;
 class ImageReconstruction
 {
     public:
-        ImageReconstruction(Mat inputImg);
+        ImageReconstruction(const vector<vector<int> >& verticalProjections, const vector<vector<int> >& horizontalProjections, const Feature& feature);
         virtual ~ImageReconstruction();
-        vector<int> getVerticalProjectionVector()
-        vector<int> getHorizontalProjectionVector()
-
-
-        double getProjectionValue(Mat img, double alfa, double r);
-        double getProjectionValue(int sorOszl, int index);
-
-        double distance(const Point2f& P1, const Point2f& P2);
-        double calculateProjectionValue(int sorOszl, int index);
-        void calculateWeightMatrix();
-        Mat convertImageToOneDim(Mat img);
-        Mat getWeightMatrix();
+        //double distance(const Point2f& P1, const Point2f& P2);
+       // Mat convertImageToOneDim(Mat img);
         Mat getReconstructedImage();
     protected:
     private:
-        Mat weightMatrix;
-        Mat projectionVector;
-        vector<int> verticalProjectionVector;
-        vector<int> horizontalProjectionVector;
+        //Optimizer opt;
+        //ProjectionHandler projHandler(Mat img);
+
         Mat inputImg;
         Mat reconstructedImg;
 
 };
+
+
 
 #endif // IMAGERECONSTRUCTION_H

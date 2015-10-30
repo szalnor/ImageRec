@@ -1,32 +1,58 @@
-#include "Tanito.h"
-#include "Features.h"
-
-Tanito::Tanito()
+#include "Trainer.h"
+#include "Feature.h"
+/*
+Trainer::Trainer(const Feature &feature)
 {
+    this->feature = feature;
     //ctor
 }
 
-Tanito::~Tanito()
+
+Feature *Trainer::getFeature() const
 {
+    return feature;
+}
+
+void Trainer::setFeature(Feature *value)
+{
+    feature = value;
+}
+*/
+Trainer::Trainer()
+{
+
+}
+
+Trainer::~Trainer()
+{
+    //delete feature;
     //dtor
 }
 
-ostream& operator<<(ostream& out, const vector<int> numbers){
 
-for(int i=0;i<numbers.size();i++){
-    out<< numbers[i] << " ";
+/*
+std::unique_ptr<Feature> Trainer::getFeature() const
+{
+    return feature;
 }
 
-return out;
+void Trainer::setFeature(const std::unique_ptr<Feature> &value)
+{
+    feature = value;
 }
+*/
 
 
-void Tanito::tanit(map<string,Mat>& pos, vector<int>& result){
+
+
+
+/*
+void Trainer::tanit(map<string,Mat>& pos, vector<int>& result){
 
 // eloszor pos-ban lévő képek feature vektorait számoljuk ki, majd ebből egy "középértéket", így a sok feature-ből
 // létrehozunk egy átlagos feature vektort.
 
-Features f;
+Feature f;
 vector<vector<int>> featureDatas;
 map<string,Mat>::iterator it;
 
@@ -47,10 +73,10 @@ for( it = pos.begin(); it != pos.end(); it++){
 int komponens_atlag;
 vector<int> seged;
 // 16 a mérete 4x4-es split esetén
-for(int i=0;i<featureDatas[0].size();i++){
+for(unsigned int i=0;i<featureDatas[0].size();i++){
 
     // pos.size()
-    for(int j=0;j<featureDatas.size();j++){
+    for(unsigned int j=0;j<featureDatas.size();j++){
         seged.push_back(featureDatas[j][i]);
     }
     //cout<<"seged: "<< seged<<endl;
@@ -65,6 +91,6 @@ for(int i=0;i<featureDatas[0].size();i++){
 
 
 }
-
+*/
 
 

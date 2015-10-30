@@ -1,6 +1,5 @@
 #include "ImageHandler.h"
 
-
 ImageHandler::ImageHandler(const Mat& img, const int nSize)
 {
 
@@ -129,7 +128,7 @@ void ImageHandler::WriteImageMatrixToFile(Mat& img, int i, int j)
 }
 
 
-void ImageHandler::WriteImageVectorToFile(map<string, vector<int>>& subImages )
+void ImageHandler::WriteImageVectorToFile(map<string, vector<int> >& subImages )
 {
 
     ofstream myfile;
@@ -137,7 +136,7 @@ void ImageHandler::WriteImageVectorToFile(map<string, vector<int>>& subImages )
     stringstream filename;
     string str;
 
-    map<string, vector<int>>::iterator it;
+    map<string, vector<int> >::iterator it;
     for(it=subImages.begin(); it!=subImages.end(); ++it)
     {
         str.assign(it->first);
@@ -282,7 +281,7 @@ return imgName;
 
 
 
-bool ImageHandler::readMultipleImages(map<string,Mat> & images, string dirPath, int width, int height){
+bool ImageHandler::readMultipleImages(string dirPath, map<string,Mat> & images, int width, int height){
 
 Mat image;
 //cv::VideoCapture cap("bone_000.jpg");
@@ -318,10 +317,11 @@ cv::VideoCapture cap(dirPath);
 
         image = imread(curr_img_name,1);
         if(!image.data){
+            //throw invalid_argument("Error! The given image is invalid!");
             break;
         }
 
-        if(transformToBinaryImage(image, image, width, height) == 0);
+        if(transformToBinaryImage(image, image, width, height) == 0)
             images[img_name] = image;
 
         i++;
@@ -373,7 +373,7 @@ bool ImageHandler::transformToBinaryImage(Mat& oldImage, Mat& newImage, int widt
 
 // transform to binary image
     threshold( img2, newImage, 128, 255,THRESH_BINARY);
-    //newImage/=255;
+    newImage/=255;
     return 0;
 
 }

@@ -1,6 +1,8 @@
+
 #ifndef EXCEPTIONS_H
 #define EXCEPTIONS_H
 
+/*
 #include <exception>
 
 
@@ -14,11 +16,12 @@ class WrongImageException : public exception
     private:
 };
 
+/*
 class EmptyImageException : public WrongImageException
 {
 
 
 };
-
+*/
 
 #endif // EXCEPTIONS_H
